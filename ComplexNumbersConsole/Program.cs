@@ -1,4 +1,5 @@
 ﻿using System;
+using ComplexNumbersLib;
 
 namespace ComplexNumbersConsole
 {
@@ -6,7 +7,7 @@ namespace ComplexNumbersConsole
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			// TODO
 		}
 	}
 }

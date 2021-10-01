@@ -6,22 +6,33 @@ namespace ComplexNumbersLibTests
 {
 	public class ComplexNumbersTest
 	{
+		private static double FloatingPointTolerance = 1e-6;
+
+		private static bool AreEqualWithTolerance(Complex z, Complex w)
+		{
+			var diff = z - w;
+
+			return
+				Math.Abs(diff.Real) <= FloatingPointTolerance &&
+				Math.Abs(diff.Imaginary) <= FloatingPointTolerance;
+		}
+
 		[Fact]
 		public void EqualityTest()
 		{
-			var z1 = new Complex(2, 4);
-			var z2 = new Complex(2, 4);
+			var z = new Complex(2, 4);
+			var w = new Complex(2, 4);
 
-			Assert.True(z1 == z2);
+			Assert.True(z == w);
 		}
 
 		[Fact]
 		public void InequalityTest()
 		{
-			var z1 = new Complex(2, 4);
-			var z2 = new Complex(7, -1);
+			var z = new Complex(2, 4);
+			var w = new Complex(7, -1);
 
-			Assert.True(z1 != z2);
+			Assert.True(z != w);
 		}
 
 		[Fact]
@@ -45,55 +56,119 @@ namespace ComplexNumbersLibTests
 		[Fact]
 		public void AbsoluteValueTest()
 		{
-			throw new NotImplementedException();
+			// Pythagorean triple
+
+			var z = new Complex(3, 4);
+
+			var expected = 5;
+			var actual = z.Abs();
+
+			Assert.True(expected == actual);
 		}
 
 		[Fact]
 		public void ArgumentTest()
 		{
-			throw new NotImplementedException();
+			var z = -Complex.ImaginaryUnit;
+
+			var expected = -Math.PI / 2;
+			var actual = z.Arg();
+
+			Assert.True(expected == actual);
 		}
 
 		[Fact]
 		public void ConjugateTest()
 		{
-			throw new NotImplementedException();
+			var z = new Complex(-4, 5);
+
+			var expected = new Complex(-4, -5);
+			var actual = z.Conjugate();
+
+			Assert.True(expected == actual);
 		}
 
 		[Fact]
 		public void AdditionTest()
 		{
-			throw new NotImplementedException();
+			var z = new Complex(-3, 1);
+			var w = new Complex(7, 2);
+
+			var expected = new Complex(4, 3);
+			var actual = z + w;
+
+			Assert.True(expected == actual);
 		}
 
 		[Fact]
 		public void SubtractionTest()
 		{
-			throw new NotImplementedException();
+			var z = new Complex(-3, 1);
+			var w = new Complex(7, 2);
+
+			var expected = new Complex(-10, -1);
+			var actual = z - w;
+
+			Assert.True(expected == actual);
 		}
 
 		[Fact]
 		public void MultiplicationTest()
 		{
-			throw new NotImplementedException();
+			var z = new Complex(-3, 4);
+			var w = new Complex(-3, -4);
+
+			var expected = 25;
+			var actual = z * w;
+
+			Assert.True(expected == actual);
+		}
+
+		[Fact]
+		public void DivisonTest()
+		{
+			var z = new Complex(7, 11);
+			var w = new Complex(4, -1);
+
+			var expected = new Complex(1, 3);
+			var actual = z / w;
+
+			Assert.True(expected == actual);
 		}
 
 		[Fact]
 		public void ExponentiationTest()
 		{
-			throw new NotImplementedException();
+			var z = Complex.ImaginaryUnit;
+
+			var expected = -Complex.ImaginaryUnit;
+			var actual = z.Pow(3);
+
+			Assert.True(AreEqualWithTolerance(expected, actual));
 		}
 
 		[Fact]
 		public void SqrtTest()
 		{
-			throw new NotImplementedException();
+			var z = -Complex.One;
+
+			var expected = Complex.ImaginaryUnit;
+			var actual = z.Sqrt();
+
+			Assert.True(AreEqualWithTolerance(expected, actual));
 		}
 
 		[Fact]
 		public void NaturalLogarithmTest()
 		{
-			throw new NotImplementedException();
+			// Euler's identity e^(i*pi) + 1 = 0
+
+			var z = -Complex.One;
+
+			var expected = Complex.ImaginaryUnit * Math.PI;
+			var actual = z.Log();
+
+			Assert.True(expected == actual);
 		}
 	}
 }
