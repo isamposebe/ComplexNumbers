@@ -47,6 +47,9 @@ namespace ComplexNumbersLib
 
 		public override string ToString()
 		{
+			if (double.IsNaN(Real) || double.IsNaN(Imaginary))
+				return double.NaN.ToString();
+
 			if (Imaginary == 0)
 				return Real.ToString();
 
@@ -158,6 +161,20 @@ namespace ComplexNumbersLib
 			return new Complex(
 				z.Real * mul,
 				-z.Imaginary * mul
+			);
+		}
+
+		/// <summary>
+		/// Rounds the complex number components to a specified
+		/// number of fractional digits.
+		/// </summary>
+		/// <param name="decimals">Number of fractional digits</param>
+		/// <returns>Rounded complex number</returns>
+		public Complex Round(int decimals)
+		{
+			return new Complex(
+				Math.Round(Real, decimals),
+				Math.Round(Imaginary, decimals)
 			);
 		}
 

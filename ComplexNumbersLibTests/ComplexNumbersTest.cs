@@ -54,14 +54,12 @@ namespace ComplexNumbersLibTests
 		}
 
 		[Fact]
-		public void AbsoluteValueTest()
+		public void RoundTest()
 		{
-			// Pythagorean triple
+			var z = new Complex(Math.PI, Math.E);
 
-			var z = new Complex(3, 4);
-
-			var expected = 5;
-			var actual = z.Abs();
+			var expected = new Complex(3.1416, 2.7183);
+			var actual = z.Round(4);
 
 			Assert.True(expected == actual);
 		}
@@ -73,6 +71,19 @@ namespace ComplexNumbersLibTests
 
 			var expected = -Math.PI / 2;
 			var actual = z.Arg();
+
+			Assert.True(expected == actual);
+		}
+
+		[Fact]
+		public void AbsoluteValueTest()
+		{
+			// Pythagorean triple
+
+			var z = new Complex(3, 4);
+
+			var expected = 5;
+			var actual = z.Abs();
 
 			Assert.True(expected == actual);
 		}
