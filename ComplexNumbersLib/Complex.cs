@@ -161,6 +161,10 @@ namespace ComplexNumbersLib
 			);
 		}
 
+		/// <summary>
+		/// Calculates the argument of a complex number.
+		/// </summary>
+		/// <returns>Argument</returns>
 		public double Arg()
 		{
 			// Can't use Atan2 because it returns negative values
