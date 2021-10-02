@@ -45,7 +45,7 @@ namespace ComplexNumbersWinForms
 			LabelDivisionResult.Text =       $"z / w = {(NumberZ / NumberW).Round(4)}";
 			LabelPowerResult.Text =          $"z ^ w = {NumberZ.Pow(NumberW.Real).Round(4)}";
 			LabelAbsResult.Text =            $"|z| = {Round(NumberZ.Abs(), 4)}";
-			LabelArgResult.Text =            $"Arg(z) = {Round(NumberZ.Arg()), 4}";
+			LabelArgResult.Text =            $"Arg(z) = {Round(NumberZ.Arg(), 4)}";
 			LabelConjugateResult.Text =      $"z* = {NumberZ.Conjugate().Round(4)}";
 			LabelSqrtResult.Text =           $"Sqrt(z) = {NumberZ.Sqrt().Round(4)}";
 			LabelLogResult.Text =            $"Log(z) = {NumberZ.Log().Round(4)}";
