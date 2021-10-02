@@ -137,7 +137,7 @@ namespace ComplexNumbersLibTests
 		}
 
 		[Fact]
-		public void ExponentiationTest()
+		public void PowerTest()
 		{
 			var z = Complex.ImaginaryUnit;
 
@@ -169,6 +169,19 @@ namespace ComplexNumbersLibTests
 			var actual = z.Log();
 
 			Assert.True(expected == actual);
+		}
+
+		[Fact]
+		public void ExponentiationTest()
+		{
+			// Euler's identity e^(i*pi) + 1 = 0
+
+			var z = Complex.ImaginaryUnit * Math.PI;
+
+			var expected = -Complex.One;
+			var actual = z.Exp();
+
+			Assert.True(AreEqualWithTolerance(expected, actual));
 		}
 	}
 }

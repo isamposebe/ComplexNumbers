@@ -163,6 +163,9 @@ namespace ComplexNumbersLib
 
 		public double Arg()
 		{
+			// Can't use Atan2 because it returns negative values
+			// when the imaginary part is -0 and the real part is negative
+
 			var arg = Math.Acos(Real / Abs());
 
 			if (Imaginary < 0)
@@ -171,21 +174,38 @@ namespace ComplexNumbersLib
 			return arg;
 		}
 
+		/// <summary>
+		/// Calculates the absolute value of a complex number.
+		/// </summary>
+		/// <returns>Absolute value</returns>
 		public double Abs()
 		{
 			return Math.Sqrt(Real * Real + Imaginary * Imaginary);
 		}
 
+		/// <summary>
+		/// Calculates the squared absolute value of a complex number.
+		/// </summary>
+		/// <returns>Squared absolute value</returns>
 		public double AbsSqr()
 		{
 			return Real * Real + Imaginary * Imaginary;
 		}
 
+		/// <summary>
+		/// Calculates the complex conjugate.
+		/// </summary>
+		/// <returns>Conjugate</returns>
 		public Complex Conjugate()
 		{
 			return new Complex(Real, -Imaginary);
 		}
 
+		/// <summary>
+		/// Raises a complex number to a real power.
+		/// </summary>
+		/// <param name="power">Power</param>
+		/// <returns>Principal product of exponentiation</returns>
 		public Complex Pow(double power)
 		{
 			double newArgument = Arg() * power;
@@ -197,14 +217,36 @@ namespace ComplexNumbersLib
 			);
 		}
 
+		/// <summary>
+		/// Calculates the principal square root of a complex number.
+		/// </summary>
+		/// <returns>Principal square root</returns>
 		public Complex Sqrt()
 		{
 			return Pow(0.5);
 		}
 
+		/// <summary>
+		/// Calculates the natural logarithm of a complex number.
+		/// </summary>
+		/// <returns>Natural logarithm</returns>
 		public Complex Log()
 		{
 			return new Complex(Math.Log(AbsSqr())/2, Arg());
+		}
+
+		/// <summary>
+		/// Calculates the natural exponent of a complex number.
+		/// </summary>
+		/// <returns>Natural exponent</returns>
+		public Complex Exp()
+		{
+			var magnitude = Math.Exp(Real);
+			
+			return new Complex(
+				magnitude * Math.Cos(Imaginary),
+				magnitude * Math.Sin(Imaginary)
+			);
 		}
 	}
 }
