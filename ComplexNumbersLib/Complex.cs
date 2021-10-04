@@ -28,6 +28,15 @@ namespace ComplexNumbersLib
         public Complex(double real, double imaginary) => (Real, Imaginary) = (real, imaginary);
 
         /// <summary>
+        /// Returns 0 as a complex number.
+        /// </summary>
+        /// <returns>The value of 1</returns>
+        public static Complex Zero
+        {
+            get => new();
+        }
+
+        /// <summary>
         /// Returns 1 as a complex number.
         /// </summary>
         /// <returns>The value of 1</returns>
