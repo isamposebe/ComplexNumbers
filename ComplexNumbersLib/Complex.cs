@@ -116,9 +116,29 @@ namespace ComplexNumbersLib
             return new Complex(z.Real + w.Real, z.Imaginary + w.Imaginary);
         }
 
+        public static Complex operator +(Complex z, double x)
+        {
+            return new Complex(z.Real + x, z.Imaginary);
+        }
+
+        public static Complex operator +(double x, Complex z)
+        {
+            return new Complex(x + z.Real, z.Imaginary);
+        }
+
         public static Complex operator -(Complex z, Complex w)
         {
             return new Complex(z.Real - w.Real, z.Imaginary - w.Imaginary);
+        }
+
+        public static Complex operator -(Complex z, double x)
+        {
+            return new Complex(z.Real - x, z.Imaginary);
+        }
+
+        public static Complex operator -(double x, Complex z)
+        {
+            return new Complex(x - z.Real, -z.Imaginary);
         }
 
         public static Complex operator *(Complex z, Complex w)
