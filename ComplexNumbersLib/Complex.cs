@@ -216,7 +216,10 @@ namespace ComplexNumbersLib
             // Can't use Atan2 because it returns negative values
             // when the imaginary part is -0 and the real part is negative
 
-            var arg = Math.Acos(Real / Abs());
+            if (Real == 0 && Imaginary == 0)
+                return 0;
+
+            var arg = Math.Acos(Math.Clamp(Real / Abs(), -1, 1));
 
             if (Imaginary < 0)
                 arg = -arg;
