@@ -33,7 +33,7 @@ namespace ComplexNumbersLib
         /// <returns>The value of 1</returns>
         public static Complex One
         {
-            get => new Complex(1, 0);
+            get => new(1, 0);
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace ComplexNumbersLib
         /// <returns>Imaginary unit</returns>
         public static Complex ImaginaryUnit
         {
-            get => new Complex(0, 1);
+            get => new(0, 1);
         }
 
         public override string ToString()
@@ -268,6 +268,26 @@ namespace ComplexNumbersLib
                 magnitude * Math.Cos(Imaginary),
                 magnitude * Math.Sin(Imaginary)
             );
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (ReferenceEquals(obj, null))
+            {
+                return false;
+            }
+
+            throw new NotImplementedException();
+        }
+
+        public override int GetHashCode()
+        {
+            throw new NotImplementedException();
         }
     }
 }

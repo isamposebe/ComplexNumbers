@@ -6,7 +6,7 @@ namespace ComplexNumbersLibTests
 {
     public class ComplexNumbersTest
     {
-        private static double FloatingPointTolerance = 1e-6;
+        private static readonly double FloatingPointTolerance = 1e-6;
 
         private static bool AreEqualWithTolerance(Complex z, Complex w)
         {
