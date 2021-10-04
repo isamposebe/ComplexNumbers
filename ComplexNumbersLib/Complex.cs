@@ -30,7 +30,7 @@ namespace ComplexNumbersLib
         /// <summary>
         /// Returns 0 as a complex number.
         /// </summary>
-        /// <returns>The value of 1</returns>
+        /// <returns>The value of 0</returns>
         public static Complex Zero
         {
             get => new();
