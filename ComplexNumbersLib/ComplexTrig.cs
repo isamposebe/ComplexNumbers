@@ -132,7 +132,7 @@ namespace ComplexNumbersLib
 
         public override string ToString()
         {
-            return $"(θ: {Argument}; r: {Magnitude})";
+            return $"(a: {Argument}; r: {Magnitude})";
         }
 
         public static bool operator ==(ComplexTrig z, ComplexTrig w)

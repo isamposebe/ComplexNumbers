@@ -85,7 +85,7 @@ namespace ComplexNumbersLibTests
         {
             var z = new ComplexTrig(7*Math.PI, 4);
 
-            var expected = $"(θ: {Math.PI}; r: 4)";
+            var expected = $"(a: {Math.PI}; r: 4)";
             var actual = z.ToString();
 
             Assert.Equal(expected, actual);
