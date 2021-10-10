@@ -83,14 +83,14 @@ namespace ComplexNumbersLib
         /// Constructs a complex number with the magnitude
         /// equal to one.
         /// </summary>
-        /// <param name="argument">Real part</param>
+        /// <param name="argument">Argument of a complex number/param>
         public ComplexTrig(double argument) => (Argument, Magnitude) = (argument, 1);
 
         /// <summary>
         /// Constructs a complex number.
         /// </summary>
-        /// <param name="argument">Argument</param>
-        /// <param name="magnitude">Magnitude</param>
+        /// <param name="argument">Argument of a complex number</param>
+        /// <param name="magnitude">Magnitude of a complex number</param>
         public ComplexTrig(double argument, double magnitude) => (Argument, Magnitude) = (argument, magnitude);
 
         /// <summary>
