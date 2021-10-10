@@ -14,7 +14,7 @@ namespace ComplexNumbersConsole
             var mode = int.Parse(Console.ReadLine());
 
             switch (mode)
-			{
+            {
                 case 1:
                     ComplexDemo();
                     break;
@@ -26,11 +26,11 @@ namespace ComplexNumbersConsole
                 default:
                     Console.WriteLine("Invalid mode");
                     break;
-			}
+            }
         }
 
         private static void ComplexDemo()
-		{
+        {
             var z = new Complex();
             var w = new Complex();
 
