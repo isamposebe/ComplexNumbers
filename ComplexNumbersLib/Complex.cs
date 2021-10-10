@@ -2,23 +2,10 @@
 
 namespace ComplexNumbersLib
 {
-    public class Complex
+    public struct Complex
     {
         public double Real;
         public double Imaginary;
-
-        /// <summary>
-        /// Constructs a complex number with both real and
-        /// imaginary parts equal to zero.
-        /// </summary>
-        public Complex() => (Real, Imaginary) = (0, 0);
-
-        /// <summary>
-        /// Constructs a complex number with the imaginary
-        /// part equal to zero.
-        /// </summary>
-        /// <param name="real">Real part</param>
-        public Complex(double real) => (Real, Imaginary) = (real, 0);
 
         /// <summary>
         /// Constructs a complex number.
@@ -42,7 +29,7 @@ namespace ComplexNumbersLib
         /// <returns>The value of 1</returns>
         public static Complex One
         {
-            get => new(1);
+            get => new(1, 0);
         }
 
         /// <summary>
@@ -56,7 +43,7 @@ namespace ComplexNumbersLib
 
         public override bool Equals(object obj)
         {
-            return ReferenceEquals(this, obj);
+            return obj is Complex number && this == number;
         }
 
         public override int GetHashCode()

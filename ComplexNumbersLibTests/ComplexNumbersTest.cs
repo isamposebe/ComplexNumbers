@@ -66,7 +66,7 @@ namespace ComplexNumbersLibTests
         public void ToStringTest()
         {
             var z1 = new Complex();
-            var z2 = new Complex(-3);
+            var z2 = new Complex(-3, 0);
             var z3 = new Complex(5, 7);
             var z4 = new Complex(5, -7);
             var z5 = new Complex(0, -7);

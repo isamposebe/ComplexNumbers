@@ -2,39 +2,12 @@
 
 namespace ComplexNumbersLib
 {
-    public class ComplexTrig
+    public struct ComplexTrig
     {
         private const double PI_2 = Math.PI / 2;
 
-        private double _argument;
-        private double _magnitude;
-
-        /// <summary>
-        /// Argument property that normalizes the argument value.
-        /// </summary>
-        public double Argument
-        {
-            get => _argument;
-            set => _argument = NormalizedArgument(value);
-        }
-
-        /// <summary>
-        /// Magnitude property that checks for negative values.
-        /// </summary>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when the magnitude is set to a negative number</exception>
-        public double Magnitude
-        {
-            get => _magnitude;
-
-            set
-            {
-                if (value < 0)
-                    throw new ArgumentOutOfRangeException("Magnitude can't be negaive.");
-                else
-                    _magnitude = value;
-            }
-        }
-
+        public double Argument;
+        public double Magnitude;
 
         public double Real
         {
@@ -74,24 +47,20 @@ namespace ComplexNumbersLib
         }
 
         /// <summary>
-        /// Constructs a complex number with both real and
-        /// imaginary parts equal to zero.
-        /// </summary>
-        public ComplexTrig() => (Argument, Magnitude) = (0, 0);
-
-        /// <summary>
-        /// Constructs a complex number with the magnitude
-        /// equal to one.
-        /// </summary>
-        /// <param name="argument">Argument of a complex number/param>
-        public ComplexTrig(double argument) => (Argument, Magnitude) = (argument, 1);
-
-        /// <summary>
         /// Constructs a complex number.
         /// </summary>
         /// <param name="argument">Argument of a complex number</param>
         /// <param name="magnitude">Magnitude of a complex number</param>
-        public ComplexTrig(double argument, double magnitude) => (Argument, Magnitude) = (argument, magnitude);
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when the magnitude is set to a negative number</exception>
+        public ComplexTrig(double argument, double magnitude)
+		{
+            if (magnitude < 0)
+                throw new ArgumentOutOfRangeException("Magnitude can't be negaive.");
+            else
+                Magnitude = magnitude;
+
+            Argument = NormalizedArgument(argument);
+        }
 
         /// <summary>
         /// Returns 0 as a complex number.
@@ -108,7 +77,7 @@ namespace ComplexNumbersLib
         /// <returns>The value of 1</returns>
         public static ComplexTrig One
         {
-            get => new(0);
+            get => new(0, 1);
         }
 
         /// <summary>

@@ -9,11 +9,11 @@ namespace ComplexNumbersWinForms
 {
 	public partial class Form1 : Form
 	{
-		private readonly Complex NumberZ = new();
-		private readonly Complex NumberW = new();
+		private Complex NumberZ = new();
+		private Complex NumberW = new();
 
-		private readonly ComplexTrig TrigNumberZ = new();
-		private readonly ComplexTrig TrigNumberW = new();
+		private ComplexTrig TrigNumberZ = new();
+		private ComplexTrig TrigNumberW = new();
 
 		public Form1()
 		{
