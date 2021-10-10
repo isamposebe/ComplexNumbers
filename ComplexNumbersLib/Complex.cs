@@ -54,6 +54,16 @@ namespace ComplexNumbersLib
             get => new(0, 1);
         }
 
+        public override bool Equals(object obj)
+        {
+            return ReferenceEquals(this, obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return Real.GetHashCode() ^ Imaginary.GetHashCode();
+        }
+
         public override string ToString()
         {
             if (double.IsNaN(Real) || double.IsNaN(Imaginary))
@@ -300,26 +310,6 @@ namespace ComplexNumbersLib
                 magnitude * Math.Cos(Imaginary),
                 magnitude * Math.Sin(Imaginary)
             );
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            if (ReferenceEquals(obj, null))
-            {
-                return false;
-            }
-
-            throw new NotImplementedException();
-        }
-
-        public override int GetHashCode()
-        {
-            throw new NotImplementedException();
         }
     }
 }
