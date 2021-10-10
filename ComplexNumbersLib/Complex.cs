@@ -42,7 +42,7 @@ namespace ComplexNumbersLib
         /// <returns>The value of 1</returns>
         public static Complex One
         {
-            get => new(1, 0);
+            get => new(1);
         }
 
         /// <summary>
