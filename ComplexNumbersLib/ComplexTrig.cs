@@ -28,10 +28,10 @@ namespace ComplexNumbersLib
 
             set
             {
-                if (value >= 0)
-                    _magnitude = value;
-                else
+                if (value < 0)
                     throw new ArgumentOutOfRangeException("Magnitude can't be negaive.");
+                else
+                    _magnitude = value;
             }
         }
 
